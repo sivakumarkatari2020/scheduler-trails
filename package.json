@@ -1,0 +1,25 @@
+{
+  "name": "scheduler-trail",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@next/font": "13.1.1",
+    "antd-mobile": "^5.27.0",
+    "eslint": "8.30.0",
+    "eslint-config-next": "13.1.1",
+    "next": "13.1.1",
+    "next-images": "^1.8.4",
+    "next-transpile-modules": "^10.0.0",
+    "react": "18.2.0",
+    "react-big-scheduler": "0.2.7",
+    "react-dnd": "7.4.5",
+    "react-dnd-html5-backend": "7.4.4",
+    "react-dom": "18.2.0"
+  }
+}

@@ -1,0 +1,1552 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Nunito';
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: #111111;
+    background: #FBFCFA;
+  }
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Nunito';
+}
+
+
+form{
+  font-family: Nunito;
+}
+
+.calendarWrapper{
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  padding: 5rem;
+}
+.demo-app {
+  display: flex;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.demo-app-sidebar {
+  width: 300px;
+  line-height: 1.5;
+  background: #eaf9ff;
+  border-right: 1px solid #d3e2e8;
+}
+
+.demo-app-sidebar-section {
+  padding: 2em;
+}
+
+.demo-app-main {
+  flex-grow: 1;
+  padding: 3em;
+}
+
+.fc { /* the calendar root */
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.MainLayout-stickyElement{
+  display: none;
+}
+.Layout-timeScaleContainer{
+    display: none;
+}
+
+.header1-text{
+  font-size: 25px;
+  color: #90CDF9;
+  font-weight: 500;
+}
+
+.header2-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.header3-text {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.base-text {
+  font-size: 12px;
+}
+
+.help-text {
+  font-size: 12px;
+  color: #999;
+}
+
+.disabled-text {
+  font-size: 12px;
+  color: #ccc;
+}
+
+.scheduler {
+  margin: 20px auto;
+  border-spacing: 0;
+}
+
+.scheduler td {
+  padding: 0px;
+}
+
+.expander-space {
+  overflow: hidden;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  font-size: .9em;
+  vertical-align: middle;
+  margin-top: -1%;
+}
+
+.resource-view {
+  border: 1px solid #e9e9e9;
+  overflow: hidden;
+}
+
+.scheduler-view {
+  border: 1px solid #e9e9e9;
+  margin: 0 0 0 -1px;
+  padding: 0;
+}
+
+.scheduler-content {
+  position: relative;
+  z-index: 2;
+}
+
+.scheduler-bg {
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index: 1;
+}
+
+table.resource-table, table.scheduler-bg-table, table.scheduler-table {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-spacing: 0;
+  text-align: center;
+}
+
+table.scheduler-table {
+  border: 1px solid #e9e9e9;
+}
+
+table.scheduler-content-table {
+  margin: 0;
+  padding: 0;
+  border: 0 solid #e9e9e9;
+  border-spacing: 0;
+}
+
+table.resource-table tr, table.scheduler-bg-table tr, table.scheduler-table tr {border-bottom: 1px solid #e9e9e9}
+
+table.resource-table th, table.scheduler-table th, table.resource-table td, table.scheduler-bg-table td, table.scheduler-table td{
+  border-right: 1px solid #e9e9e9;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+table.scheduler-bg-table th {
+  border-right: 1px solid #e9e9e9;
+}
+
+table.resource-table tr th:last-child, /*table.scheduler-bg-table tr th:last-child, */table.scheduler-table tr th:last-child,
+table.resource-table tr td:last-child, /*table.scheduler-bg-table tr td:last-child, */table.scheduler-table tr td:last-child{ border-right: 0 }
+/*table.resource-table tr:last-child td, table.scheduler-bg-table tr:last-child td, */table.scheduler-table tr:last-child td{ border-bottom: 0 }
+
+.timeline-event {
+  position: absolute;
+}
+
+.day-event {
+  position: relative;
+  display: inline-block;
+  margin: 0px 5px;
+}
+
+.day-event-container {
+  text-align: left;
+  padding: 5px 5px 0 5px;
+}
+
+.round-all {
+  border-radius: 14px;
+}
+
+.round-head {
+  border-radius: 14px 0px 0px 14px;
+}
+
+.round-tail {
+  border-radius: 0px 14px 14px 0px;
+}
+
+.round-none {
+  border-radius: 0px;
+}
+
+.event-container {
+  position: relative;
+}
+
+.event-item {
+  margin: 1px 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff;
+  padding-right: 20px !important;
+}
+
+.overflow-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 5px !important;
+}
+
+.status-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 7px;
+}
+
+.ant-radio-button-wrapper-checked {
+  background-color: #108EE9;
+  color: #FFFFFF;
+}
+
+.icon-nav:hover{
+  color:#1E90FF !important;
+  box-shadow: 0 0 0px !important;
+  cursor: pointer;
+}
+
+.add-more-popover-overlay {
+  position: absolute;
+  z-index: 5;
+  border: 1px solid #e5e5e5;
+  background-color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+}
+
+.popover-calendar {
+  width: 300px;
+}
+
+.popover-calendar .ant-calendar {
+  box-shadow: 0 1px 6px rgba(0,0,0,0) !important;
+}
+
+.event-resizer {
+  position: absolute;
+  z-index: 4;
+  display: block;
+  width:7px;
+  top: -1px;
+  bottom: -1px;
+}
+
+.event-start-resizer {
+  cursor: w-resize;
+  left: -1px;
+}
+
+.event-end-resizer {
+  cursor: e-resize;
+  right: -1px;
+}
+
+.selected-area {
+  position: absolute;
+}
+
+.slot-cell {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.slot-text {
+  display: inline-block;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+/* contents of file antd-globals-hiding-hack.css */
+
+#RBS-Scheduler-root {
+  /* stylelint-disable at-rule-no-unknown */
+  /* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
+  /* stylelint-disable no-duplicate-selectors */
+  /* stylelint-disable */
+  /* stylelint-disable declaration-bang-space-before,no-duplicate-selectors,string-no-newline */
+}
+#RBS-Scheduler-root html,
+#RBS-Scheduler-root body {
+  width: 100%;
+  height: 100%;
+}
+#RBS-Scheduler-root input::-ms-clear,
+#RBS-Scheduler-root input::-ms-reveal {
+  display: none;
+}
+#RBS-Scheduler-root *,
+#RBS-Scheduler-root *::before,
+#RBS-Scheduler-root *::after {
+  box-sizing: border-box;
+}
+#RBS-Scheduler-root html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+@-ms-viewport {
+  width: device-width;
+}
+#RBS-Scheduler-root article,
+#RBS-Scheduler-root aside,
+#RBS-Scheduler-root dialog,
+#RBS-Scheduler-root figcaption,
+#RBS-Scheduler-root figure,
+#RBS-Scheduler-root footer,
+#RBS-Scheduler-root header,
+#RBS-Scheduler-root hgroup,
+#RBS-Scheduler-root main,
+#RBS-Scheduler-root nav,
+#RBS-Scheduler-root section {
+  display: block;
+}
+#RBS-Scheduler-root body {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  background-color: #fff;
+  font-feature-settings: 'tnum';
+}
+#RBS-Scheduler-root [tabindex='-1']:focus {
+  outline: none !important;
+}
+#RBS-Scheduler-root hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+#RBS-Scheduler-root h1,
+#RBS-Scheduler-root h2,
+#RBS-Scheduler-root h3,
+#RBS-Scheduler-root h4,
+#RBS-Scheduler-root h5,
+#RBS-Scheduler-root h6 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+}
+#RBS-Scheduler-root p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+#RBS-Scheduler-root abbr[title],
+#RBS-Scheduler-root abbr[data-original-title] {
+  text-decoration: underline;
+  text-decoration: underline dotted;
+  border-bottom: 0;
+  cursor: help;
+}
+#RBS-Scheduler-root address {
+  margin-bottom: 1em;
+  font-style: normal;
+  line-height: inherit;
+}
+#RBS-Scheduler-root input[type='text'],
+#RBS-Scheduler-root input[type='password'],
+#RBS-Scheduler-root input[type='number'],
+#RBS-Scheduler-root textarea {
+  -webkit-appearance: none;
+}
+#RBS-Scheduler-root ol,
+#RBS-Scheduler-root ul,
+#RBS-Scheduler-root dl {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+#RBS-Scheduler-root ol ol,
+#RBS-Scheduler-root ul ul,
+#RBS-Scheduler-root ol ul,
+#RBS-Scheduler-root ul ol {
+  margin-bottom: 0;
+}
+#RBS-Scheduler-root dt {
+  font-weight: 500;
+}
+#RBS-Scheduler-root dd {
+  margin-bottom: 0.5em;
+  margin-left: 0;
+}
+#RBS-Scheduler-root blockquote {
+  margin: 0 0 1em;
+}
+#RBS-Scheduler-root dfn {
+  font-style: italic;
+}
+#RBS-Scheduler-root b,
+#RBS-Scheduler-root strong {
+  font-weight: bolder;
+}
+#RBS-Scheduler-root small {
+  font-size: 80%;
+}
+#RBS-Scheduler-root sub,
+#RBS-Scheduler-root sup {
+  position: relative;
+  font-size: 75%;
+  line-height: 0;
+  vertical-align: baseline;
+}
+#RBS-Scheduler-root sub {
+  bottom: -0.25em;
+}
+#RBS-Scheduler-root sup {
+  top: -0.5em;
+}
+#RBS-Scheduler-root a {
+  color: #1890ff;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.3s;
+  -webkit-text-decoration-skip: objects;
+}
+#RBS-Scheduler-root a:hover {
+  color: #40a9ff;
+}
+#RBS-Scheduler-root a:active {
+  color: #096dd9;
+}
+#RBS-Scheduler-root a:active,
+#RBS-Scheduler-root a:hover {
+  text-decoration: none;
+  outline: 0;
+}
+#RBS-Scheduler-root a[disabled] {
+  color: rgba(0, 0, 0, 0.25);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+#RBS-Scheduler-root pre,
+#RBS-Scheduler-root code,
+#RBS-Scheduler-root kbd,
+#RBS-Scheduler-root samp {
+  font-size: 1em;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+#RBS-Scheduler-root pre {
+  margin-top: 0;
+  margin-bottom: 1em;
+  overflow: auto;
+}
+#RBS-Scheduler-root figure {
+  margin: 0 0 1em;
+}
+#RBS-Scheduler-root img {
+  vertical-align: middle;
+  border-style: none;
+}
+#RBS-Scheduler-root svg:not(:root) {
+  overflow: hidden;
+}
+#RBS-Scheduler-root a,
+#RBS-Scheduler-root area,
+#RBS-Scheduler-root button,
+#RBS-Scheduler-root [role='button'],
+#RBS-Scheduler-root input:not([type='range']),
+#RBS-Scheduler-root label,
+#RBS-Scheduler-root select,
+#RBS-Scheduler-root summary,
+#RBS-Scheduler-root textarea {
+  touch-action: manipulation;
+}
+#RBS-Scheduler-root table {
+  border-collapse: collapse;
+}
+#RBS-Scheduler-root caption {
+  padding-top: 0.75em;
+  padding-bottom: 0.3em;
+  color: rgba(0, 0, 0, 0.45);
+  text-align: left;
+  caption-side: bottom;
+}
+#RBS-Scheduler-root th {
+  text-align: inherit;
+}
+#RBS-Scheduler-root input,
+#RBS-Scheduler-root button,
+#RBS-Scheduler-root select,
+#RBS-Scheduler-root optgroup,
+#RBS-Scheduler-root textarea {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+#RBS-Scheduler-root button,
+#RBS-Scheduler-root input {
+  overflow: visible;
+}
+#RBS-Scheduler-root button,
+#RBS-Scheduler-root select {
+  text-transform: none;
+}
+#RBS-Scheduler-root button,
+#RBS-Scheduler-root html [type="button"],
+#RBS-Scheduler-root [type="reset"],
+#RBS-Scheduler-root [type="submit"] {
+  -webkit-appearance: button;
+}
+#RBS-Scheduler-root button::-moz-focus-inner,
+#RBS-Scheduler-root [type='button']::-moz-focus-inner,
+#RBS-Scheduler-root [type='reset']::-moz-focus-inner,
+#RBS-Scheduler-root [type='submit']::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+#RBS-Scheduler-root input[type='radio'],
+#RBS-Scheduler-root input[type='checkbox'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+#RBS-Scheduler-root input[type='date'],
+#RBS-Scheduler-root input[type='time'],
+#RBS-Scheduler-root input[type='datetime-local'],
+#RBS-Scheduler-root input[type='month'] {
+  -webkit-appearance: listbox;
+}
+#RBS-Scheduler-root textarea {
+  overflow: auto;
+  resize: vertical;
+}
+#RBS-Scheduler-root fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+#RBS-Scheduler-root legend {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 0.5em;
+  padding: 0;
+  color: inherit;
+  font-size: 1.5em;
+  line-height: inherit;
+  white-space: normal;
+}
+#RBS-Scheduler-root progress {
+  vertical-align: baseline;
+}
+#RBS-Scheduler-root [type='number']::-webkit-inner-spin-button,
+#RBS-Scheduler-root [type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+#RBS-Scheduler-root [type='search'] {
+  outline-offset: -2px;
+  -webkit-appearance: none;
+}
+#RBS-Scheduler-root [type='search']::-webkit-search-cancel-button,
+#RBS-Scheduler-root [type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+#RBS-Scheduler-root ::-webkit-file-upload-button {
+  font: inherit;
+  -webkit-appearance: button;
+}
+#RBS-Scheduler-root output {
+  display: inline-block;
+}
+#RBS-Scheduler-root summary {
+  display: list-item;
+}
+#RBS-Scheduler-root template {
+  display: none;
+}
+#RBS-Scheduler-root [hidden] {
+  display: none !important;
+}
+#RBS-Scheduler-root mark {
+  padding: 0.2em;
+  background-color: #feffe6;
+}
+#RBS-Scheduler-root ::selection {
+  color: #fff;
+  background: #1890ff;
+}
+#RBS-Scheduler-root .clearfix {
+  zoom: 1;
+}
+#RBS-Scheduler-root .clearfix::before,
+#RBS-Scheduler-root .clearfix::after {
+  display: table;
+  content: '';
+}
+#RBS-Scheduler-root .clearfix::after {
+  clear: both;
+}
+#RBS-Scheduler-root .anticon {
+  display: inline-block;
+  color: inherit;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-transform: none;
+  vertical-align: -0.125em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#RBS-Scheduler-root .anticon > * {
+  line-height: 1;
+}
+#RBS-Scheduler-root .anticon svg {
+  display: inline-block;
+}
+#RBS-Scheduler-root .anticon::before {
+  display: none;
+}
+#RBS-Scheduler-root .anticon #RBS-Scheduler-root .anticon-icon {
+  display: block;
+}
+#RBS-Scheduler-root .anticon[tabindex] {
+  cursor: pointer;
+}
+#RBS-Scheduler-root .anticon-spin::before {
+  display: inline-block;
+  animation: loadingCircle 1s infinite linear;
+}
+#RBS-Scheduler-root .anticon-spin {
+  display: inline-block;
+  animation: loadingCircle 1s infinite linear;
+}
+#RBS-Scheduler-root .fade-enter,
+#RBS-Scheduler-root .fade-appear {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .fade-leave {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .fade-enter.fade-enter-active,
+#RBS-Scheduler-root .fade-appear.fade-appear-active {
+  animation-name: antFadeIn;
+  animation-play-state: running;
+}
+#RBS-Scheduler-root .fade-leave.fade-leave-active {
+  animation-name: antFadeOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+#RBS-Scheduler-root .fade-enter,
+#RBS-Scheduler-root .fade-appear {
+  opacity: 0;
+  animation-timing-function: linear;
+}
+#RBS-Scheduler-root .fade-leave {
+  animation-timing-function: linear;
+}
+@keyframes antFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes antFadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#RBS-Scheduler-root .move-up-enter,
+#RBS-Scheduler-root .move-up-appear {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .move-up-leave {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .move-up-enter.move-up-enter-active,
+#RBS-Scheduler-root .move-up-appear.move-up-appear-active {
+  animation-name: antMoveUpIn;
+  animation-play-state: running;
+}
+#RBS-Scheduler-root .move-up-leave.move-up-leave-active {
+  animation-name: antMoveUpOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+#RBS-Scheduler-root .move-up-enter,
+#RBS-Scheduler-root .move-up-appear {
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+#RBS-Scheduler-root .move-up-leave {
+  animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+}
+#RBS-Scheduler-root .move-down-enter,
+#RBS-Scheduler-root .move-down-appear {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .move-down-leave {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .move-down-enter.move-down-enter-active,
+#RBS-Scheduler-root .move-down-appear.move-down-appear-active {
+  animation-name: antMoveDownIn;
+  animation-play-state: running;
+}
+#RBS-Scheduler-root .move-down-leave.move-down-leave-active {
+  animation-name: antMoveDownOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+#RBS-Scheduler-root .move-down-enter,
+#RBS-Scheduler-root .move-down-appear {
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+#RBS-Scheduler-root .move-down-leave {
+  animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+}
+#RBS-Scheduler-root .move-left-enter,
+#RBS-Scheduler-root .move-left-appear {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .move-left-leave {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .move-left-enter.move-left-enter-active,
+#RBS-Scheduler-root .move-left-appear.move-left-appear-active {
+  animation-name: antMoveLeftIn;
+  animation-play-state: running;
+}
+#RBS-Scheduler-root .move-left-leave.move-left-leave-active {
+  animation-name: antMoveLeftOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+#RBS-Scheduler-root .move-left-enter,
+#RBS-Scheduler-root .move-left-appear {
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+#RBS-Scheduler-root .move-left-leave {
+  animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+}
+#RBS-Scheduler-root .move-right-enter,
+#RBS-Scheduler-root .move-right-appear {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .move-right-leave {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .move-right-enter.move-right-enter-active,
+#RBS-Scheduler-root .move-right-appear.move-right-appear-active {
+  animation-name: antMoveRightIn;
+  animation-play-state: running;
+}
+#RBS-Scheduler-root .move-right-leave.move-right-leave-active {
+  animation-name: antMoveRightOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+#RBS-Scheduler-root .move-right-enter,
+#RBS-Scheduler-root .move-right-appear {
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+#RBS-Scheduler-root .move-right-leave {
+  animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+}
+@keyframes antMoveDownIn {
+  0% {
+    transform: translateY(100%);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    transform-origin: 0 0;
+    opacity: 1;
+  }
+}
+@keyframes antMoveDownOut {
+  0% {
+    transform: translateY(0%);
+    transform-origin: 0 0;
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+}
+@keyframes antMoveLeftIn {
+  0% {
+    transform: translateX(-100%);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    transform-origin: 0 0;
+    opacity: 1;
+  }
+}
+@keyframes antMoveLeftOut {
+  0% {
+    transform: translateX(0%);
+    transform-origin: 0 0;
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+}
+@keyframes antMoveRightIn {
+  0% {
+    transform: translateX(100%);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    transform-origin: 0 0;
+    opacity: 1;
+  }
+}
+@keyframes antMoveRightOut {
+  0% {
+    transform: translateX(0%);
+    transform-origin: 0 0;
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+}
+@keyframes antMoveUpIn {
+  0% {
+    transform: translateY(-100%);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    transform-origin: 0 0;
+    opacity: 1;
+  }
+}
+@keyframes antMoveUpOut {
+  0% {
+    transform: translateY(0%);
+    transform-origin: 0 0;
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+}
+@keyframes loadingCircle {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#RBS-Scheduler-root [ant-click-animating='true'],
+#RBS-Scheduler-root [ant-click-animating-without-extra-node='true'] {
+  position: relative;
+}
+#RBS-Scheduler-root html {
+  --antd-wave-shadow-color: #1890ff;
+}
+#RBS-Scheduler-root [ant-click-animating-without-extra-node='true']::after,
+#RBS-Scheduler-root .ant-click-animating-node {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 #1890ff;
+  box-shadow: 0 0 0 0 var(--antd-wave-shadow-color);
+  opacity: 0.2;
+  animation: fadeEffect 2s cubic-bezier(0.08, 0.82, 0.17, 1), waveEffect 0.4s cubic-bezier(0.08, 0.82, 0.17, 1);
+  animation-fill-mode: forwards;
+  content: '';
+  pointer-events: none;
+}
+@keyframes waveEffect {
+  100% {
+    box-shadow: 0 0 0 #1890ff;
+    box-shadow: 0 0 0 6px var(--antd-wave-shadow-color);
+  }
+}
+@keyframes fadeEffect {
+  100% {
+    opacity: 0;
+  }
+}
+#RBS-Scheduler-root .slide-up-enter,
+#RBS-Scheduler-root .slide-up-appear {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .slide-up-leave {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .slide-up-enter.slide-up-enter-active,
+#RBS-Scheduler-root .slide-up-appear.slide-up-appear-active {
+  animation-name: antSlideUpIn;
+  animation-play-state: running;
+}
+#RBS-Scheduler-root .slide-up-leave.slide-up-leave-active {
+  animation-name: antSlideUpOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+#RBS-Scheduler-root .slide-up-enter,
+#RBS-Scheduler-root .slide-up-appear {
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+#RBS-Scheduler-root .slide-up-leave {
+  animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+#RBS-Scheduler-root .slide-down-enter,
+#RBS-Scheduler-root .slide-down-appear {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .slide-down-leave {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .slide-down-enter.slide-down-enter-active,
+#RBS-Scheduler-root .slide-down-appear.slide-down-appear-active {
+  animation-name: antSlideDownIn;
+  animation-play-state: running;
+}
+#RBS-Scheduler-root .slide-down-leave.slide-down-leave-active {
+  animation-name: antSlideDownOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+#RBS-Scheduler-root .slide-down-enter,
+#RBS-Scheduler-root .slide-down-appear {
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+#RBS-Scheduler-root .slide-down-leave {
+  animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+#RBS-Scheduler-root .slide-left-enter,
+#RBS-Scheduler-root .slide-left-appear {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .slide-left-leave {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .slide-left-enter.slide-left-enter-active,
+#RBS-Scheduler-root .slide-left-appear.slide-left-appear-active {
+  animation-name: antSlideLeftIn;
+  animation-play-state: running;
+}
+#RBS-Scheduler-root .slide-left-leave.slide-left-leave-active {
+  animation-name: antSlideLeftOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+#RBS-Scheduler-root .slide-left-enter,
+#RBS-Scheduler-root .slide-left-appear {
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+#RBS-Scheduler-root .slide-left-leave {
+  animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+#RBS-Scheduler-root .slide-right-enter,
+#RBS-Scheduler-root .slide-right-appear {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .slide-right-leave {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .slide-right-enter.slide-right-enter-active,
+#RBS-Scheduler-root .slide-right-appear.slide-right-appear-active {
+  animation-name: antSlideRightIn;
+  animation-play-state: running;
+}
+#RBS-Scheduler-root .slide-right-leave.slide-right-leave-active {
+  animation-name: antSlideRightOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+#RBS-Scheduler-root .slide-right-enter,
+#RBS-Scheduler-root .slide-right-appear {
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+#RBS-Scheduler-root .slide-right-leave {
+  animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+@keyframes antSlideUpIn {
+  0% {
+    transform: scaleY(0.8);
+    transform-origin: 0% 0%;
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: 0% 0%;
+    opacity: 1;
+  }
+}
+@keyframes antSlideUpOut {
+  0% {
+    transform: scaleY(1);
+    transform-origin: 0% 0%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(0.8);
+    transform-origin: 0% 0%;
+    opacity: 0;
+  }
+}
+@keyframes antSlideDownIn {
+  0% {
+    transform: scaleY(0.8);
+    transform-origin: 100% 100%;
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+}
+@keyframes antSlideDownOut {
+  0% {
+    transform: scaleY(1);
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(0.8);
+    transform-origin: 100% 100%;
+    opacity: 0;
+  }
+}
+@keyframes antSlideLeftIn {
+  0% {
+    transform: scaleX(0.8);
+    transform-origin: 0% 0%;
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: 0% 0%;
+    opacity: 1;
+  }
+}
+@keyframes antSlideLeftOut {
+  0% {
+    transform: scaleX(1);
+    transform-origin: 0% 0%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0.8);
+    transform-origin: 0% 0%;
+    opacity: 0;
+  }
+}
+@keyframes antSlideRightIn {
+  0% {
+    transform: scaleX(0.8);
+    transform-origin: 100% 0%;
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+}
+@keyframes antSlideRightOut {
+  0% {
+    transform: scaleX(1);
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0.8);
+    transform-origin: 100% 0%;
+    opacity: 0;
+  }
+}
+#RBS-Scheduler-root .swing-enter,
+#RBS-Scheduler-root .swing-appear {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .swing-enter.swing-enter-active,
+#RBS-Scheduler-root .swing-appear.swing-appear-active {
+  animation-name: antSwingIn;
+  animation-play-state: running;
+}
+@keyframes antSwingIn {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+}
+#RBS-Scheduler-root .zoom-enter,
+#RBS-Scheduler-root .zoom-appear {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .zoom-leave {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .zoom-enter.zoom-enter-active,
+#RBS-Scheduler-root .zoom-appear.zoom-appear-active {
+  animation-name: antZoomIn;
+  animation-play-state: running;
+}
+#RBS-Scheduler-root .zoom-leave.zoom-leave-active {
+  animation-name: antZoomOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+#RBS-Scheduler-root .zoom-enter,
+#RBS-Scheduler-root .zoom-appear {
+  transform: scale(0);
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+#RBS-Scheduler-root .zoom-leave {
+  animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+#RBS-Scheduler-root .zoom-big-enter,
+#RBS-Scheduler-root .zoom-big-appear {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .zoom-big-leave {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .zoom-big-enter.zoom-big-enter-active,
+#RBS-Scheduler-root .zoom-big-appear.zoom-big-appear-active {
+  animation-name: antZoomBigIn;
+  animation-play-state: running;
+}
+#RBS-Scheduler-root .zoom-big-leave.zoom-big-leave-active {
+  animation-name: antZoomBigOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+#RBS-Scheduler-root .zoom-big-enter,
+#RBS-Scheduler-root .zoom-big-appear {
+  transform: scale(0);
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+#RBS-Scheduler-root .zoom-big-leave {
+  animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+#RBS-Scheduler-root .zoom-big-fast-enter,
+#RBS-Scheduler-root .zoom-big-fast-appear {
+  animation-duration: 0.1s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .zoom-big-fast-leave {
+  animation-duration: 0.1s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .zoom-big-fast-enter.zoom-big-fast-enter-active,
+#RBS-Scheduler-root .zoom-big-fast-appear.zoom-big-fast-appear-active {
+  animation-name: antZoomBigIn;
+  animation-play-state: running;
+}
+#RBS-Scheduler-root .zoom-big-fast-leave.zoom-big-fast-leave-active {
+  animation-name: antZoomBigOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+#RBS-Scheduler-root .zoom-big-fast-enter,
+#RBS-Scheduler-root .zoom-big-fast-appear {
+  transform: scale(0);
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+#RBS-Scheduler-root .zoom-big-fast-leave {
+  animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+#RBS-Scheduler-root .zoom-up-enter,
+#RBS-Scheduler-root .zoom-up-appear {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .zoom-up-leave {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .zoom-up-enter.zoom-up-enter-active,
+#RBS-Scheduler-root .zoom-up-appear.zoom-up-appear-active {
+  animation-name: antZoomUpIn;
+  animation-play-state: running;
+}
+#RBS-Scheduler-root .zoom-up-leave.zoom-up-leave-active {
+  animation-name: antZoomUpOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+#RBS-Scheduler-root .zoom-up-enter,
+#RBS-Scheduler-root .zoom-up-appear {
+  transform: scale(0);
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+#RBS-Scheduler-root .zoom-up-leave {
+  animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+#RBS-Scheduler-root .zoom-down-enter,
+#RBS-Scheduler-root .zoom-down-appear {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .zoom-down-leave {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .zoom-down-enter.zoom-down-enter-active,
+#RBS-Scheduler-root .zoom-down-appear.zoom-down-appear-active {
+  animation-name: antZoomDownIn;
+  animation-play-state: running;
+}
+#RBS-Scheduler-root .zoom-down-leave.zoom-down-leave-active {
+  animation-name: antZoomDownOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+#RBS-Scheduler-root .zoom-down-enter,
+#RBS-Scheduler-root .zoom-down-appear {
+  transform: scale(0);
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+#RBS-Scheduler-root .zoom-down-leave {
+  animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+#RBS-Scheduler-root .zoom-left-enter,
+#RBS-Scheduler-root .zoom-left-appear {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .zoom-left-leave {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .zoom-left-enter.zoom-left-enter-active,
+#RBS-Scheduler-root .zoom-left-appear.zoom-left-appear-active {
+  animation-name: antZoomLeftIn;
+  animation-play-state: running;
+}
+#RBS-Scheduler-root .zoom-left-leave.zoom-left-leave-active {
+  animation-name: antZoomLeftOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+#RBS-Scheduler-root .zoom-left-enter,
+#RBS-Scheduler-root .zoom-left-appear {
+  transform: scale(0);
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+#RBS-Scheduler-root .zoom-left-leave {
+  animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+#RBS-Scheduler-root .zoom-right-enter,
+#RBS-Scheduler-root .zoom-right-appear {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .zoom-right-leave {
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+#RBS-Scheduler-root .zoom-right-enter.zoom-right-enter-active,
+#RBS-Scheduler-root .zoom-right-appear.zoom-right-appear-active {
+  animation-name: antZoomRightIn;
+  animation-play-state: running;
+}
+#RBS-Scheduler-root .zoom-right-leave.zoom-right-leave-active {
+  animation-name: antZoomRightOut;
+  animation-play-state: running;
+  pointer-events: none;
+}
+#RBS-Scheduler-root .zoom-right-enter,
+#RBS-Scheduler-root .zoom-right-appear {
+  transform: scale(0);
+  opacity: 0;
+  animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+#RBS-Scheduler-root .zoom-right-leave {
+  animation-timing-function: cubic-bezier(0.78, 0.14, 0.15, 0.86);
+}
+@keyframes antZoomIn {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes antZoomOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+}
+@keyframes antZoomBigIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes antZoomBigOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+@keyframes antZoomUpIn {
+  0% {
+    transform: scale(0.8);
+    transform-origin: 50% 0%;
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: 50% 0%;
+  }
+}
+@keyframes antZoomUpOut {
+  0% {
+    transform: scale(1);
+    transform-origin: 50% 0%;
+  }
+  100% {
+    transform: scale(0.8);
+    transform-origin: 50% 0%;
+    opacity: 0;
+  }
+}
+@keyframes antZoomLeftIn {
+  0% {
+    transform: scale(0.8);
+    transform-origin: 0% 50%;
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: 0% 50%;
+  }
+}
+@keyframes antZoomLeftOut {
+  0% {
+    transform: scale(1);
+    transform-origin: 0% 50%;
+  }
+  100% {
+    transform: scale(0.8);
+    transform-origin: 0% 50%;
+    opacity: 0;
+  }
+}
+@keyframes antZoomRightIn {
+  0% {
+    transform: scale(0.8);
+    transform-origin: 100% 50%;
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: 100% 50%;
+  }
+}
+@keyframes antZoomRightOut {
+  0% {
+    transform: scale(1);
+    transform-origin: 100% 50%;
+  }
+  100% {
+    transform: scale(0.8);
+    transform-origin: 100% 50%;
+    opacity: 0;
+  }
+}
+@keyframes antZoomDownIn {
+  0% {
+    transform: scale(0.8);
+    transform-origin: 50% 100%;
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    transform-origin: 50% 100%;
+  }
+}
+@keyframes antZoomDownOut {
+  0% {
+    transform: scale(1);
+    transform-origin: 50% 100%;
+  }
+  100% {
+    transform: scale(0.8);
+    transform-origin: 50% 100%;
+    opacity: 0;
+  }
+}
+#RBS-Scheduler-root .ant-motion-collapse {
+  overflow: hidden;
+}
+#RBS-Scheduler-root .ant-motion-collapse-active {
+  transition: height 0.15s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.15s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+}
